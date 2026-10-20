@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar Sesión - Nova Beauty</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles (1).css') }}">
+</head>
+<body>
+{% with messages = get_flashed_messages(with_categories=true) %}{% if messages %}{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}{% endif %}{% endwith %}
+  <section class="auth-container">
+    <div class="logo-box">
+      <img src="{{ url_for('static', filename='img/image (1).png') }}" alt="Nova Beauty Logo" class="logo">
+      <h1>NOVA BEAUTY</h1>
+    </div>
+
+    <h2>Iniciar Sesión</h2>
+
+    <form method="post">
+      <input type="email" name="email" placeholder="Correo electrónico" required>
+      <input type="password" name="password" placeholder="Contraseña" required>
+      <button class="btn primary" type="submit">Iniciar Sesión</button>
+    </form>
+
+    <p>¿No tienes cuenta? <a href="{{ url_for('registro') }}">Regístrate</a></p>
+  </section>
+</body>
+</html>
